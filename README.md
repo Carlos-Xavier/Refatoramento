@@ -19,7 +19,7 @@ A solução encontrada foi criar uma classe **_seats_**, eliminando assim os mé
 
 Depois da correção:
 > [https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/manager/Messages.java](https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/manager/Messages.java)
-> [https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/movies/Movie.java](https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/movies/Movie.java)
+> [https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/movies/Movie.java](https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/movies/Movie.java) <br>
 > [https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/movies/Seats.java](https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/movies/Seats.java)
 
 
