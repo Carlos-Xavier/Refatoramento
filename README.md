@@ -1,3 +1,4 @@
+
 # Refatoramento
 
 O código escolhido para o refatoramento foi o [https://github.com/Carlos-Xavier/P3-Projects/tree/master/O.O-Project](https://github.com/Carlos-Xavier/P3-Projects/tree/master/O.O-Project) .
@@ -42,7 +43,7 @@ Esse smell está localizado no arquivo **Profile.java**. A função em questão 
 Antes da correção: 
 > [https://github.com/Carlos-Xavier/P3-Projects/blob/master/O.O-Project/cineflex/manager/Profile.java](https://github.com/Carlos-Xavier/P3-Projects/blob/master/O.O-Project/cineflex/manager/Profile.java)
 
-A solução encontrada foi a divisão da função, dessa forma, as funções **_getMovieIndex_** e **_getRoomIndex_** foram criados. Tornando assim, a compreensão da **_cancelPurchase_** mais fácil.
+A solução encontrada foi a divisão da função, dessa forma, as funções **_getMovieIndex_**, **_getRoomIndex_**, **_setMoney_** e **_setSeats_** foram criados. Tornando assim, a compreensão da **_cancelPurchase_** mais fácil.
 
 Depois da correção:
 > [https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/manager/Profile.java](https://github.com/Carlos-Xavier/Refatoramento/blob/master/cineflex/manager/Profile.java)
