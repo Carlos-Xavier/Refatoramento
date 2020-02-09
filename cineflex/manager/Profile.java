@@ -116,7 +116,29 @@ public final class Profile extends Register {
         return 0;
     }
     
-    public void cancelPurchase(Profile user, Movies[] movie) {
+    public void setMoney(int i) {
+        if (this.getHistoric(i, 2) != null) {
+            float aux = Float.parseFloat(this.getHistoric(i, 2));
+            this.getType().setMoney(this.getType().getMoney() + aux);
+                            
+        } else {
+            float aux = Float.parseFloat(this.getHistoric(i, 3));
+            this.getType().setCoins(this.getType().getCoins() + aux);
+        }
+    }
+    
+    public void setSeats(int i, int id, Movies[] movie) {
+        int room = getRoomIndex(movie, id, i);
+        System.out.println("sala: " + movie[id].getSchedules(room));
+        
+        int m = Integer.parseInt(this.getHistoric(i, 4));
+        int n = Integer.parseInt(this.getHistoric(i, 5));
+                        
+        int idSeat = movie[id].seatIndex(movie[id].getSchedules(room), id);
+        movie[id].seats[idSeat].setSeats(m, n, false);
+    }
+    
+    public void cancelPurchase(Movies[] movie) {
         int id = getMovieIndex(movie);
         if (id != -1) {
             System.out.println("movie: " + id);
@@ -124,30 +146,15 @@ public final class Profile extends Register {
                 if (this.getHistoric(i, 0) != null) {
                     if (this.getHistoric(i, 0).equals(movie[id].getName())) {
                         
-                        if (this.getHistoric(i, 2) != null) {
-                            float aux = Float.parseFloat(this.getHistoric(i, 2));
-                            user.getType().setMoney(user.getType().getMoney() + aux);
-                            
-                        } else {
-                            float aux = Float.parseFloat(this.getHistoric(i, 3));
-                            user.getType().setCoins(user.getType().getCoins() + aux);
-                        }
-
-                        int room = getRoomIndex(movie, id, i);
-                        System.out.println("sala: " + movie[id].getSchedules(room));
-                        
-                        int m = Integer.parseInt(this.getHistoric(i, 4));
-                        int n = Integer.parseInt(this.getHistoric(i, 5));
-                        
-                        int idSeat = movie[id].seatIndex(movie[id].getSchedules(room), id);
-                        movie[id].seats[idSeat].setSeats(m, n, false);
+                        setMoney(i);
+                        setSeats(i, id, movie);
                         
                         this.setHistoric(i, 0, null);
                         this.setHistoric(i, 1, null);
                         this.setHistoric(i, 2, null);
                         this.setHistoric(i, 3, null);
                                 
-                        user.getType().setCoins((user.getType().getCoins()) - 1);
+                        this.getType().setCoins((this.getType().getCoins()) - 1);
                         break;
                     }
                 }
@@ -168,10 +175,10 @@ public final class Profile extends Register {
                 manageMovies(movies, user);
                 break;
             case 3:
-                purchasesHistoric(user);
+                this.purchasesHistoric(user);
                 break;
             case 4:
-                cancelPurchase(user, movies);
+                cancelPurchase(movies);
                 break;
             default:
                 return;
